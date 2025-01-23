@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:privacy_alternatives/widgets/improvements.dart';
 import 'package:privacy_alternatives/widgets/privacy_lights.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
         body: Column(
           children: [
             PrivacyLightsWidget(),
+            ImprovementsWidget(),
           ],
         ));
   }
