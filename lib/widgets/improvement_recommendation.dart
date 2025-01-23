@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:privacy_alternatives/content/alternatives.dart';
 
 class ImprovementRecommendationWidget extends StatelessWidget {
-  // final String found_app = "chrome";
-  // String recommendation = "duckduckgo";
+  late final String foundApp;
+  late final Alternative alternative;
 
-  // Download the logo of the found_app and recommendation
-  // from the internet and display them in the widget
-
-  const ImprovementRecommendationWidget({super.key});
+  ImprovementRecommendationWidget(
+      {required this.foundApp, required this.alternative, super.key});
 
   @override
   Widget build(BuildContext context) {
