@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_alternatives/content/alternatives.dart';
+import 'package:privacy_alternatives/content/apps.dart';
 
 class ImprovementRecommendationWidget extends StatelessWidget {
-  late final String foundApp;
+  late final App foundApp;
   late final Alternative alternative;
 
   ImprovementRecommendationWidget(
@@ -26,8 +27,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image(
-                  image:
-                      AssetImage('assets/images/apps/com.android.chrome.webp'),
+                  image: AssetImage('assets/images/apps/${foundApp.code}.webp'),
                   width: screenSize.width * 0.15,
                   height: screenSize.width * 0.15,
                 ),
@@ -51,7 +51,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       child: Image(
                         image: AssetImage(
-                            'assets/images/apps/com.duckduckgo.mobile.android.webp'),
+                            'assets/images/apps/${alternative.app.code}.webp'),
                         width: screenSize.width * 0.15,
                         height: screenSize.width * 0.15,
                       ),
@@ -65,7 +65,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Privacy Lights',
+                            alternative.app.title,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -74,13 +74,16 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                           SizedBox(height: 4),
                           ConstrainedBox(
                             constraints: BoxConstraints(
-                                maxWidth: screenSize.width * 0.6),
+                                maxWidth: screenSize.width * 0.5),
                             child: Flexible(
                               child: Text(
-                                'This widget indicates the privacy status using animated lights.',
+                                alternative.app.description,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontSize: 14,
                                 ),
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
                               ),
                             ),
                           ),

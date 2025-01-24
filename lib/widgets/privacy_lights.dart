@@ -64,7 +64,7 @@ class _PrivacyLightsWidgetState extends State<PrivacyLightsWidget>
               ),
               Image.asset(
                 'assets/images/lights_yellow.png',
-                height: screenSize.width * 0.4,
+                height: screenSize.width * 0.3,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
