@@ -61,10 +61,10 @@ final Map<String, App> APPS = {
         'Ein quelloffener Webbrowser, der deine Privatsphäre respektiert und Werbung blockiert.',
     code: 'com.brave.browser',
   ),
-  'org.ecosia.ecosia.android': App(
+  'com.ecosia.android': App(
     title: 'Ecosia',
     description:
         'Ein Webbrowser, der deine Privatsphäre respektiert und nebenbei Bäume pflanzt.',
-    code: 'org.ecosia.ecosia.android',
+    code: 'com.ecosia.android',
   ),
 };

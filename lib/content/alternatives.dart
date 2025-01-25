@@ -26,7 +26,7 @@ final List<Alternative> ALTERNATIVES = [
     goodOtherApps: [
       APPS['org.mozilla.firefox']!,
       APPS['com.brave.browser']!,
-      APPS['org.ecosia.ecosia.android']!,
+      APPS['com.ecosia.android']!,
     ],
   ),
 ];
@@ -47,7 +47,7 @@ List<App> getAlternativesTo(App app) {
   );
   List<App> alternatives = [];
   alternatives.add(alternative.app);
-  alternatives.addAll(alternative.replacing);
+  alternatives.addAll(alternative.goodOtherApps);
 
   // Remove the app itself
   alternatives.remove(app);

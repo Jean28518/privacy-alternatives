@@ -7,12 +7,16 @@ import 'package:privacy_alternatives/widgets/detail.dart';
 
 class SimpleCard extends StatelessWidget {
   late final App app;
-  SimpleCard({required this.app, super.key});
+  late final bool hideBackground;
+  SimpleCard({required this.app, this.hideBackground = false, super.key});
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final goodApp = isAppGood(app);
+    if (hideBackground) {
+      return SimpleCardWithoutBackground(app: app, screenSize: screenSize);
+    }
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Container(
@@ -25,6 +29,8 @@ class SimpleCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
           onTap: () {
+            Navigator.of(context, rootNavigator: true)
+                .popUntil((route) => route.isFirst);
             showDialog(
               context: context,
               builder: (BuildContext context) {
@@ -32,52 +38,68 @@ class SimpleCard extends StatelessWidget {
               },
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
+          child: SimpleCardWithoutBackground(app: app, screenSize: screenSize),
+        ),
+      ),
+    );
+  }
+}
+
+class SimpleCardWithoutBackground extends StatelessWidget {
+  const SimpleCardWithoutBackground({
+    super.key,
+    required this.app,
+    required this.screenSize,
+  });
+
+  final App app;
+  final Size screenSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image(
+              image: AssetImage('assets/images/apps/${app.code}.webp'),
+              width: min(screenSize.width * 0.15, 100),
+              height: min(screenSize.width * 0.15, 100),
+            ),
+          ),
+          Container(
+            width: 16,
+          ),
+          Flexible(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image(
-                    image: AssetImage('assets/images/apps/${app.code}.webp'),
-                    width: min(screenSize.width * 0.15, 100),
-                    height: min(screenSize.width * 0.15, 100),
+                Text(
+                  app.title,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  width: 16,
-                ),
-                Flexible(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        app.title,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        app.description,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                        textAlign: TextAlign.justify,
-                        maxLines: 3,
-                      ),
-                    ],
+                SizedBox(height: 4),
+                Text(
+                  app.description,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
                   ),
+                  textAlign: TextAlign.justify,
+                  maxLines: 3,
                 ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
