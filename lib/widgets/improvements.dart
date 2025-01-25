@@ -21,10 +21,11 @@ class ImprovementsWidget extends StatelessWidget {
             ),
           ),
         ),
-        ImprovementRecommendationWidget(
-          foundApp: APPS['com.mi.globalbrowser']!,
-          alternative: ALTERNATIVES.first,
-        )
+        for (final (App badApp, App goodApp) in getRecommendedAlternatives())
+          ImprovementRecommendationWidget(
+            badApp: badApp,
+            goodApp: goodApp,
+          ),
       ],
     );
   }

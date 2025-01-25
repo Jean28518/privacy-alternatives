@@ -5,6 +5,7 @@ class App {
   late final String description;
   late final String code;
   Uint8List? icon;
+  bool systemApp = false;
 
   App({required this.title, required this.description, required this.code});
 }
@@ -131,5 +132,102 @@ final Map<String, App> APPS = {
     description:
         'Ein quelloffener Messenger, der auf dem Matrix-Protokoll basiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
     code: 'im.vector.app',
+  ),
+  // E-Mail
+  'com.google.android.gm': App(
+    title: 'Gmail',
+    description:
+        'Ein E-Mail-Dienst von Google. Der Dienst sendet standardmäßig viele Daten an Google-Server.',
+    code: 'com.google.android.gm',
+  ),
+  'com.microsoft.office.outlook': App(
+    title: 'Outlook',
+    description:
+        'Ein E-Mail-Dienst von Microsoft. Der Dienst sendet standardmäßig viele Daten an Microsoft-Server.',
+    code: 'com.microsoft.office.outlook',
+  ),
+  'com.yahoo.mobile.client.android.mail': App(
+    title: 'Yahoo Mail',
+    description:
+        'Ein E-Mail-Dienst von Yahoo. Der Dienst sendet standardmäßig viele Daten an Yahoo-Server.',
+    code: 'com.yahoo.mobile.client.android.mail',
+  ),
+  'com.aol.mobile.aolapp': App(
+    title: 'AOL Mail',
+    description:
+        'Ein E-Mail-Dienst von AOL. Der Dienst sendet standardmäßig viele Daten an AOL-Server.',
+    code: 'com.aol.mobile.aolapp',
+  ),
+  'de.tutao.tutanota': App(
+    title: 'Tutanota',
+    description:
+        'Ein E-Mail-Dienst, der deine Privatsphäre respektiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
+    code: 'de.tutao.tutanota',
+  ),
+  'com.fsck.k9': App(
+    title: 'K-9 Mail',
+    description:
+        'Ein quelloffener E-Mail-Client, der deine Privatsphäre respektiert.',
+    code: 'com.fsck.k9',
+  ),
+  'ch.protonmail.android': App(
+    title: 'ProtonMail',
+    description:
+        'Ein E-Mail-Dienst, der deine Privatsphäre respektiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
+    code: 'ch.protonmail.android',
+  ),
+  'net.thunderbird.android': App(
+    title: 'Thunderbird',
+    description:
+        'Ein quelloffener E-Mail-Client von Mozilla, der deine Privatsphäre respektiert.',
+    code: 'net.thunderbird.android',
+  ),
+  'me.bluemail.mail': App(
+    title: 'Blue Mail',
+    description:
+        'Ein E-Mail-Client, der mehrere E-Mail-Konten unterstützt und eine Vielzahl von Funktionen bietet. Der Dienst sendet standardmäßig viele Daten an Blue Mail-Server.',
+    code: 'me.bluemail.mail',
+  ),
+  // ALL SOCIAL MEDIA
+  'com.facebook.katana': App(
+    title: 'Facebook',
+    description:
+        'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
+    code: 'com.facebook.katana',
+  ),
+  'com.instagram.android': App(
+    title: 'Instagram',
+    description:
+        'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
+    code: 'com.instagram.android',
+  ),
+  'com.twitter.android': App(
+    title: 'X (Twitter)',
+    description: 'Ein soziales Netzwerk aus den USA.',
+    code: 'com.twitter.android',
+  ),
+  'com.instagram.barcelona': App(
+    title: 'Threads',
+    description:
+        'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
+    code: 'com.instagram.barcelona',
+  ),
+  'com.zhiliaoapp.musically': App(
+    title: 'TikTok',
+    description:
+        'Ein soziales Netzwerk für das Teilen von kurzen Videos. Der Dienst sendet standardmäßig viele Daten an TikTok-Server.',
+    code: 'com.zhiliaoapp.musically',
+  ),
+  'org.joinmastodon.android': App(
+    title: 'Mastodon',
+    description:
+        'Ein dezentrales soziales Netzwerk, das deine Privatsphäre respektiert und keine Daten an zentrale Server sendet.',
+    code: 'org.joinmastodon.android',
+  ),
+  'com.pixelfed': App(
+    title: 'Pixelfed',
+    description:
+        'Ein dezentrales soziales Netzwerk für das Teilen von Fotos, das deine Privatsphäre respektiert und keine Daten an zentrale Server sendet.',
+    code: 'com.pixelfed',
   ),
 };

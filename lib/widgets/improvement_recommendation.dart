@@ -7,17 +7,17 @@ import 'package:privacy_alternatives/pages/detail.dart';
 import 'package:privacy_alternatives/widgets/app_icon.dart';
 
 class ImprovementRecommendationWidget extends StatelessWidget {
-  late final App foundApp;
-  late final Alternative alternative;
+  late final App badApp;
+  late final App goodApp;
 
   ImprovementRecommendationWidget(
-      {required this.foundApp, required this.alternative, super.key});
+      {required this.badApp, required this.goodApp, super.key});
 
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(8.0),
       child: IntrinsicHeight(
         child: Row(
           children: [
@@ -35,7 +35,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                         Navigator.of(context, rootNavigator: true)
                             .popUntil((route) => route.isFirst);
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DetailPage(app: foundApp),
+                          builder: (context) => DetailPage(app: badApp),
                         ));
                       },
                       child: Column(
@@ -43,7 +43,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AppIconWidget(
-                            app: foundApp,
+                            app: badApp,
                             size: Size(
                               min(screenSize.width * 0.15, 100),
                               min(screenSize.width * 0.15, 100),
@@ -70,7 +70,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                     Navigator.of(context, rootNavigator: true)
                         .popUntil((route) => route.isFirst);
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => DetailPage(app: foundApp),
+                      builder: (context) => DetailPage(app: goodApp),
                     ));
                   },
                   customBorder: RoundedRectangleBorder(
@@ -81,7 +81,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                     child: Row(
                       children: [
                         AppIconWidget(
-                          app: alternative.app,
+                          app: goodApp,
                           size: Size(
                             min(screenSize.width * 0.15, 100),
                             min(screenSize.width * 0.15, 100),
@@ -95,7 +95,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                alternative.app.title,
+                                goodApp.title,
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                               ),
                               SizedBox(height: 4),
                               Text(
-                                alternative.app.description,
+                                goodApp.description,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontSize: 14,
