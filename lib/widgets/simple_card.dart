@@ -19,7 +19,7 @@ class SimpleCard extends StatelessWidget {
       return SimpleCardWithoutBackground(app: app, screenSize: screenSize);
     }
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
