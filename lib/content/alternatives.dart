@@ -35,72 +35,6 @@ final List<Alternative> ALTERNATIVES = [
       APPS['com.ecosia.android']!,
     ],
   ),
-  //   'org.telegram.messenger': App(
-  //   title: 'Telegram',
-  //   description:
-  //       'Ein quelloffener Messenger. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'org.telegram.messenger',
-  // ),
-  // 'com.whatsapp': App(
-  //   title: 'WhatsApp',
-  //   description:
-  //       'Ein Messenger von Facebook. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.whatsapp',
-  // ),
-  // 'com.facebook.orca': App(
-  //   title: 'Messenger',
-  //   description:
-  //       'Ein Messenger von Facebook. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.facebook.orca',
-  // ),
-  // 'com.discord': App(
-  //   title: 'Discord',
-  //   description:
-  //       'Ein Messenger für Gamer. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.discord',
-  // ),
-  // 'org.thoughtcrime.securesms': App(
-  //   title: 'Signal',
-  //   description:
-  //       'Ein quelloffener Messenger. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.signalapp',
-  // ),
-  // 'com.skype.raider': App(
-  //   title: 'Skype',
-  //   description:
-  //       'Ein Messenger von Microsoft. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.skype.raider',
-  // ),
-  // 'com.snapchat.android': App(
-  //   title: 'Snapchat',
-  //   description:
-  //       'Ein Messenger, der sich auf Bilder und Videos spezialisiert hat. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.snapchat.android',
-  // ),
-  // 'com.google.android.apps.messaging': App(
-  //   title: 'Messages',
-  //   description:
-  //       'Der Standard-Messenger auf Android-Geräten. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.google.android.apps.messaging',
-  // ),
-  // 'com.google.android.apps.meetings': App(
-  //   title: 'Google Meet',
-  //   description:
-  //       'Ein Messenger von Google. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.google.android.apps.meetings',
-  // ),
-  // 'com.google.android.apps.tachyon': App(
-  //   title: 'Google Duo',
-  //   description:
-  //       'Ein Messenger von Google. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
-  //   code: 'com.google.android.apps.tachyon',
-  // ),
-  // 'im.vector.app': App(
-  //   title: 'Element',
-  //   description:
-  //       'Ein quelloffener Messenger, der auf dem Matrix-Protokoll basiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
-  //   code: 'im.vector.app',
-  // ),
   Alternative(
     app: APPS['im.vector.app']!, // Element
     replacing: [
@@ -115,69 +49,9 @@ final List<Alternative> ALTERNATIVES = [
     ],
     goodOtherApps: [
       APPS['org.thoughtcrime.securesms']!, // Signal
+      APPS['ch.threema.app']!, // Signal
     ],
   ),
-  //   // E-Mail
-  // 'com.google.android.gm': App(
-  //   title: 'Gmail',
-  //   description:
-  //       'Ein E-Mail-Dienst von Google. Der Dienst sendet standardmäßig viele Daten an Google-Server.',
-  //   code: 'com.google.android.gm',
-  // ),
-  // 'com.microsoft.office.outlook': App(
-  //   title: 'Outlook',
-  //   description:
-  //       'Ein E-Mail-Dienst von Microsoft. Der Dienst sendet standardmäßig viele Daten an Microsoft-Server.',
-  //   code: 'com.microsoft.office.outlook',
-  // ),
-  // 'com.yahoo.mobile.client.android.mail': App(
-  //   title: 'Yahoo Mail',
-  //   description:
-  //       'Ein E-Mail-Dienst von Yahoo. Der Dienst sendet standardmäßig viele Daten an Yahoo-Server.',
-  //   code: 'com.yahoo.mobile.client.android.mail',
-  // ),
-  // 'com.aol.mobile.aolapp': App(
-  //   title: 'AOL Mail',
-  //   description:
-  //       'Ein E-Mail-Dienst von AOL. Der Dienst sendet standardmäßig viele Daten an AOL-Server.',
-  //   code: 'com.aol.mobile.aolapp',
-  // ),
-  // 'de.tutao.tutanota': App(
-  //   title: 'Tutanota',
-  //   description:
-  //       'Ein E-Mail-Dienst, der deine Privatsphäre respektiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
-  //   code: 'de.tutao.tutanota',
-  // ),
-  // 'com.k9.mail': App(
-  //   title: 'K-9 Mail',
-  //   description:
-  //       'Ein quelloffener E-Mail-Client, der deine Privatsphäre respektiert.',
-  //   code: 'com.k9.mail',
-  // ),
-  // 'com.fsck.k9': App(
-  //   title: 'K-9 Mail',
-  //   description:
-  //       'Ein quelloffener E-Mail-Client, der deine Privatsphäre respektiert.',
-  //   code: 'com.fsck.k9',
-  // ),
-  // 'ch.protonmail.android': App(
-  //   title: 'ProtonMail',
-  //   description:
-  //       'Ein E-Mail-Dienst, der deine Privatsphäre respektiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
-  //   code: 'ch.protonmail.android',
-  // ),
-  // 'net.thunderbird.android': App(
-  //   title: 'Thunderbird',
-  //   description:
-  //       'Ein quelloffener E-Mail-Client von Mozilla, der deine Privatsphäre respektiert.',
-  //   code: 'org.mozilla.thunderbird',
-  // ),
-  // 'me.bluemail.mail': App(
-  //   title: 'Blue Mail',
-  //   description:
-  //       'Ein E-Mail-Client, der mehrere E-Mail-Konten unterstützt und eine Vielzahl von Funktionen bietet. Der Dienst sendet standardmäßig viele Daten an Blue Mail-Server.',
-  //   code: 'me.bluemail.mail',
-  // ),
   Alternative(
     app: APPS['net.thunderbird.android']!, // Thunderbird
     replacing: [
@@ -193,48 +67,6 @@ final List<Alternative> ALTERNATIVES = [
       APPS['de.tutao.tutanota']! // Tutanota
     ],
   ),
-  //   // ALL SOCIAL MEDIA
-  // 'com.facebook.katana': App(
-  //   title: 'Facebook',
-  //   description:
-  //       'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
-  //   code: 'com.facebook.katana',
-  // ),
-  // 'com.instagram.android': App(
-  //   title: 'Instagram',
-  //   description:
-  //       'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
-  //   code: 'com.instagram.android',
-  // ),
-  // 'com.twitter.android': App(
-  //   title: 'X (Twitter)',
-  //   description: 'Ein soziales Netzwerk, das deine Privatsphäre respektiert.',
-  //   code: 'com.twitter.android',
-  // ),
-  // 'com.instagram.barcelona': App(
-  //   title: 'Threads',
-  //   description:
-  //       'Ein soziales Netzwerk von Facebook. Der Dienst sendet standardmäßig viele Daten an Facebook-Server.',
-  //   code: 'com.instagram.barcelona',
-  // ),
-  // 'com.zhiliaoapp.musically': App(
-  //   title: 'TikTok',
-  //   description:
-  //       'Ein soziales Netzwerk für das Teilen von kurzen Videos. Der Dienst sendet standardmäßig viele Daten an TikTok-Server.',
-  //   code: 'com.zhiliaoapp.musically',
-  // ),
-  // 'org.joinmastodon.android': App(
-  //   title: 'Mastodon',
-  //   description:
-  //       'Ein dezentrales soziales Netzwerk, das deine Privatsphäre respektiert und keine Daten an zentrale Server sendet.',
-  //   code: 'org.joinmastodon.android',
-  // ),
-  // 'com.pixelfed': App(
-  //   title: 'Pixelfed',
-  //   description:
-  //       'Ein dezentrales soziales Netzwerk für das Teilen von Fotos, das deine Privatsphäre respektiert und keine Daten an zentrale Server sendet.',
-  //   code: 'com.pixelfed',
-  // ),
   Alternative(
     app: APPS['com.pixelfed']!, // Pixelfed
     replacing: [

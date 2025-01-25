@@ -133,6 +133,12 @@ final Map<String, App> APPS = {
         'Ein quelloffener Messenger, der auf dem Matrix-Protokoll basiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
     code: 'im.vector.app',
   ),
+  'ch.threema.app': App(
+    title: 'Threema',
+    description:
+        'Ein sicherer und privatsphärefreundlicher Messenger, der standardmäßig Ende-zu-Ende-verschlüsselt ist.',
+    code: 'ch.threema.app',
+  ),
   // E-Mail
   'com.google.android.gm': App(
     title: 'Gmail',
