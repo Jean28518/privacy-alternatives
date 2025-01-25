@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:privacy_alternatives/content/alternatives.dart';
 import 'package:privacy_alternatives/content/apps.dart';
@@ -15,7 +17,6 @@ class ImprovementRecommendationWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           Container(
             decoration: BoxDecoration(
@@ -28,8 +29,8 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Image(
                   image: AssetImage('assets/images/apps/${foundApp.code}.webp'),
-                  width: screenSize.width * 0.15,
-                  height: screenSize.width * 0.15,
+                  width: min(screenSize.width * 0.15, 100),
+                  height: min(screenSize.width * 0.15, 100),
                 ),
               ),
             ),
@@ -37,7 +38,7 @@ class ImprovementRecommendationWidget extends StatelessWidget {
           Container(
             width: 8,
           ),
-          Expanded(
+          Flexible(
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -52,15 +53,14 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                       child: Image(
                         image: AssetImage(
                             'assets/images/apps/${alternative.app.code}.webp'),
-                        width: screenSize.width * 0.15,
-                        height: screenSize.width * 0.15,
+                        width: min(screenSize.width * 0.15, 100),
+                        height: min(screenSize.width * 0.15, 100),
                       ),
                     ),
                     Container(
                       width: 16,
                     ),
-                    Container(
-                      height: screenSize.width * 0.15,
+                    Flexible(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -72,20 +72,14 @@ class ImprovementRecommendationWidget extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 4),
-                          ConstrainedBox(
-                            constraints: BoxConstraints(
-                                maxWidth: screenSize.width * 0.5),
-                            child: Flexible(
-                              child: Text(
-                                alternative.app.description,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                ),
-                                textAlign: TextAlign.justify,
-                                maxLines: 3,
-                              ),
+                          Text(
+                            alternative.app.description,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 14,
                             ),
+                            textAlign: TextAlign.justify,
+                            maxLines: 3,
                           ),
                         ],
                       ),

@@ -35,3 +35,22 @@ bool isAppGood(App app) {
   return ALTERNATIVES.any((alternative) =>
       alternative.goodOtherApps.contains(app) || alternative.app == app);
 }
+
+List<App> getAlternativesTo(App app) {
+  // Find the right alternative
+  Alternative alternative = ALTERNATIVES.firstWhere(
+    (alternative) => alternative.app == app,
+    orElse: () => ALTERNATIVES.firstWhere(
+      (alternative) => alternative.replacing.contains(app),
+      orElse: () => ALTERNATIVES.first,
+    ),
+  );
+  List<App> alternatives = [];
+  alternatives.add(alternative.app);
+  alternatives.addAll(alternative.replacing);
+
+  // Remove the app itself
+  alternatives.remove(app);
+
+  return alternatives;
+}

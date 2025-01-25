@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class PrivacyLightsWidget extends StatefulWidget {
@@ -47,49 +49,48 @@ class _PrivacyLightsWidgetState extends State<PrivacyLightsWidget>
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.translate(
-                    offset: Offset(0, _animation.value),
-                    child: child,
-                  );
-                },
-                child: Image.asset(
-                  'assets/images/robbi.png',
-                  width: screenSize.width * 0.2,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _animation.value),
+                      child: child,
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/images/robbi.png',
+                    width: min(screenSize.width * 0.2, 100),
+                  ),
                 ),
               ),
               Image.asset(
                 'assets/images/lights_yellow.png',
-                height: screenSize.width * 0.3,
+                width: min(screenSize.width * 0.2, 100),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Privacy Lights',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  ConstrainedBox(
-                    constraints:
-                        BoxConstraints(maxWidth: screenSize.width * 0.4),
-                    child: Flexible(
-                      child: Text(
-                        'This widget indicates the privacy status using animated lights.',
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Privacy Lights',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 10),
+                    Text(
+                      'This widget indicates the privacy status using animated lights.',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      maxLines: 3,
+                    ),
+                  ],
+                ),
               )
             ],
           ),
