@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:privacy_alternatives/content/alternatives.dart';
 import 'package:privacy_alternatives/content/apps.dart';
+import 'package:privacy_alternatives/services/installed_apps.dart';
 import 'package:privacy_alternatives/widgets/simple_card.dart';
 
 class PraisesWidget extends StatelessWidget {
@@ -20,9 +22,7 @@ class PraisesWidget extends StatelessWidget {
             ),
           ),
         ),
-        SimpleCard(
-          app: APPS['org.mozilla.firefox']!,
-        )
+        for (final app in getInstalledGoodApps()) SimpleCard(app: app),
       ],
     );
   }

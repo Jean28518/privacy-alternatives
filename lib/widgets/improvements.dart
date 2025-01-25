@@ -22,7 +22,7 @@ class ImprovementsWidget extends StatelessWidget {
           ),
         ),
         ImprovementRecommendationWidget(
-          foundApp: APPS['com.microsoft.emmx']!,
+          foundApp: APPS['com.mi.globalbrowser']!,
           alternative: ALTERNATIVES.first,
         )
       ],

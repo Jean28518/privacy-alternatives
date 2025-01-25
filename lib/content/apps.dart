@@ -1,12 +1,16 @@
+import 'dart:typed_data';
+
 class App {
   late final String title;
   late final String description;
   late final String code;
+  Uint8List? icon;
 
   App({required this.title, required this.description, required this.code});
 }
 
 final Map<String, App> APPS = {
+  // ALL WEBBROWSERS
   'com.duckduckgo.mobile.android': App(
     title: 'DuckDuckGo',
     description:
@@ -66,5 +70,66 @@ final Map<String, App> APPS = {
     description:
         'Ein Webbrowser, der deine Privatsphäre respektiert und nebenbei Bäume pflanzt.',
     code: 'com.ecosia.android',
+  ),
+  // ALL MESSENGERS
+  'org.telegram.messenger': App(
+    title: 'Telegram',
+    description:
+        'Ein quelloffener Messenger. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'org.telegram.messenger',
+  ),
+  'com.whatsapp': App(
+    title: 'WhatsApp',
+    description:
+        'Ein Messenger von Facebook. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
+    code: 'com.whatsapp',
+  ),
+  'com.facebook.orca': App(
+    title: 'Messenger',
+    description:
+        'Ein Messenger von Facebook. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
+    code: 'com.facebook.orca',
+  ),
+  'com.discord': App(
+    title: 'Discord',
+    description:
+        'Ein Messenger für Gamer. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'com.discord',
+  ),
+  'org.thoughtcrime.securesms': App(
+    title: 'Signal',
+    description:
+        'Ein quelloffener Messenger. Nachrichten werden standardmäßig Ende-zu-Ende-verschlüsselt.',
+    code: 'com.signalapp',
+  ),
+  'com.skype.raider': App(
+    title: 'Skype',
+    description:
+        'Ein Messenger von Microsoft. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'com.skype.raider',
+  ),
+  'com.snapchat.android': App(
+    title: 'Snapchat',
+    description:
+        'Ein Messenger, der sich auf Bilder und Videos spezialisiert hat. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'com.snapchat.android',
+  ),
+  'com.google.android.apps.meetings': App(
+    title: 'Google Meet',
+    description:
+        'Ein Messenger von Google. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'com.google.android.apps.meetings',
+  ),
+  'com.google.android.apps.tachyon': App(
+    title: 'Google Duo',
+    description:
+        'Ein Messenger von Google. Nachrichten werden standardmäßig nicht Ende-zu-Ende-verschlüsselt.',
+    code: 'com.google.android.apps.tachyon',
+  ),
+  'im.vector.app': App(
+    title: 'Element',
+    description:
+        'Ein quelloffener Messenger, der auf dem Matrix-Protokoll basiert und standardmäßig Ende-zu-Ende-verschlüsselt ist.',
+    code: 'im.vector.app',
   ),
 };

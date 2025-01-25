@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:privacy_alternatives/content/alternatives.dart';
 import 'package:privacy_alternatives/content/apps.dart';
-import 'package:privacy_alternatives/widgets/detail.dart';
+import 'package:privacy_alternatives/pages/detail.dart';
+import 'package:privacy_alternatives/widgets/app_icon.dart';
 
 class ImprovementRecommendationWidget extends StatelessWidget {
   late final App foundApp;
@@ -17,111 +18,110 @@ class ImprovementRecommendationWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Color.fromRGBO(255, 0, 0, 0.298),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color.fromRGBO(255, 0, 0, 0.298),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context, rootNavigator: true)
+                            .popUntil((route) => route.isFirst);
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DetailPage(app: foundApp),
+                        ));
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AppIconWidget(
+                            app: foundApp,
+                            size: Size(
+                              min(screenSize.width * 0.15, 100),
+                              min(screenSize.width * 0.15, 100),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .popUntil((route) => route.isFirst);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return DetailWidget(app: foundApp);
+            Container(
+              width: 8,
+            ),
+            Flexible(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Color.fromRGBO(51, 255, 0, 0.298),
+                ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .popUntil((route) => route.isFirst);
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DetailPage(app: foundApp),
+                    ));
                   },
-                );
-              },
-              customBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/apps/${foundApp.code}.webp'),
-                    width: min(screenSize.width * 0.15, 100),
-                    height: min(screenSize.width * 0.15, 100),
+                  customBorder: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        AppIconWidget(
+                          app: alternative.app,
+                          size: Size(
+                            min(screenSize.width * 0.15, 100),
+                            min(screenSize.width * 0.15, 100),
+                          ),
+                        ),
+                        Container(
+                          width: 16,
+                        ),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                alternative.app.title,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                alternative.app.description,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Container(
-            width: 8,
-          ),
-          Flexible(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(51, 255, 0, 0.298),
-              ),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context, rootNavigator: true)
-                      .popUntil((route) => route.isFirst);
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return DetailWidget(app: alternative.app);
-                    },
-                  );
-                },
-                customBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image(
-                          image: AssetImage(
-                              'assets/images/apps/${alternative.app.code}.webp'),
-                          width: min(screenSize.width * 0.15, 100),
-                          height: min(screenSize.width * 0.15, 100),
-                        ),
-                      ),
-                      Container(
-                        width: 16,
-                      ),
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              alternative.app.title,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              alternative.app.description,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                              textAlign: TextAlign.justify,
-                              maxLines: 3,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

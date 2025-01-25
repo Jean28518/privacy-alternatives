@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:privacy_alternatives/content/alternatives.dart';
 import 'package:privacy_alternatives/content/apps.dart';
 import 'package:privacy_alternatives/widgets/simple_card.dart';
 
@@ -20,9 +21,7 @@ class RethinksWidget extends StatelessWidget {
             ),
           ),
         ),
-        SimpleCard(
-          app: APPS['com.opera.gx']!,
-        )
+        for (final app in getInstalledBadApps()) SimpleCard(app: app),
       ],
     );
   }
