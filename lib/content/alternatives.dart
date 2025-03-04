@@ -169,10 +169,21 @@ List<(App, App)> getRecommendedAlternatives() {
   List<App> installedBadApps = getInstalledBadApps();
 
   for (App app in installedBadApps) {
+    print('Checking alternatives for ${app.title}');
     List<App> alternatives = getAlternativesTo(app);
-    if (alternatives.isNotEmpty &&
-        !getInstalledGoodApps().contains(alternatives.first)) {
-      recommendedAlternatives.add((app, alternatives.first));
+    if (alternatives.isNotEmpty) {
+      // Check if another good alternative is already installed
+      bool goodAlternativeInstalled = false;
+      for (App alternative in alternatives) {
+        if (getInstalledGoodApps().contains(alternative)) {
+          goodAlternativeInstalled = true;
+        }
+      }
+      if (goodAlternativeInstalled) {
+        continue;
+      } else {
+        recommendedAlternatives.add((app, alternatives.first));
+      }
     }
   }
 

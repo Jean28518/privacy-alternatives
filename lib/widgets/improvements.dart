@@ -8,10 +8,14 @@ class ImprovementsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<(App, App)> recommendedAlternatives = getRecommendedAlternatives();
+    if (recommendedAlternatives.isEmpty) {
+      return Container();
+    }
     return Column(
       children: [
         // Heading: "Das kannst Du besser machen"
-        Padding(
+        const Padding(
           padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
           child: Text(
             'Das kannst Du besser machen',
@@ -21,7 +25,7 @@ class ImprovementsWidget extends StatelessWidget {
             ),
           ),
         ),
-        for (final (App badApp, App goodApp) in getRecommendedAlternatives())
+        for (final (App badApp, App goodApp) in recommendedAlternatives)
           ImprovementRecommendationWidget(
             badApp: badApp,
             goodApp: goodApp,
