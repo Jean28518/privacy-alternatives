@@ -44,28 +44,38 @@ class HomePage extends StatelessWidget {
           return Center(child: Text('Error: ${snapshot.error}'));
         }
         return Scaffold(
-            // appBar: AppBar(
-            //   title: Text('Deine privaten Alternativen'),
-            // ),
-            body: SingleChildScrollView(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: min(screenSize.width, 1000),
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    PrivacyLightsWidget(score: getPrivacyScore()),
-                    ImprovementsWidget(),
-                    RethinksWidget(),
-                    PraisesWidget(),
-                  ],
-                ),
+          // appBar: AppBar(
+          //   title: Text('Deine privaten Alternativen'),
+          // ),
+          body: RefreshIndicator(
+            onRefresh: () async {
+              // "Restart" the app
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const HomePage()));
+            },
+            child: SingleChildScrollView(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: min(screenSize.width, 1000),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 50),
+                        PrivacyLightsWidget(score: getPrivacyScore()),
+                        ImprovementsWidget(),
+                        RethinksWidget(),
+                        PraisesWidget(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ));
+        );
       },
     );
   }
