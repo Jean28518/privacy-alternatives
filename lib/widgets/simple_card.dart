@@ -74,12 +74,23 @@ class SimpleCardWithoutBackground extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  app.title,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      app.title,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // Info icon:
+                    Icon(
+                      Icons.info,
+                      color: Colors.grey,
+                      size: 16,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 4),
                 Text(
